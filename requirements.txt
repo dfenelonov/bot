@@ -4,3 +4,4 @@ django-heroku
 requests
 tornado
 poster3
+urllib2
