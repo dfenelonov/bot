@@ -2,7 +2,7 @@ import requests
 import tornado.web
 import signal
 BOT_TOKEN = '1233523210:AAG5pf7YRlPpuIcuOoB6c5ycDwEJ-v1WGjE'
-URL = "https://api.telegram.org/bot%s/" % BOT_TOKEN
+URL = "http://api.telegram.org/bot%s/" % BOT_TOKEN
 # encoding: utf8
 
 
@@ -18,7 +18,7 @@ import subprocess
 
 
 
-API = 'https://api.telegram.org/bot'
+API = 'http://api.telegram.org/bot'
 TOKEN = '1233523210:AAG5pf7YRlPpuIcuOoB6c5ycDwEJ-v1WGjE'
 PAVEL = '609959297'
 
