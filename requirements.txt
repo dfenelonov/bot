@@ -3,7 +3,6 @@ gunicorn
 django-heroku
 requests
 tornado
-urllib
 time
 json
 sys
