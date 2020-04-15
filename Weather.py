@@ -27,7 +27,7 @@ URL = API + TOKEN
 # noinspection PyPep8Naming
 def getUpdates():
     get = URL + '/getUpdates'
-    response = urllib2.request.urlopen(get)
+    response = urllib.request.urlopen(get)
     return response.read()
 
 
