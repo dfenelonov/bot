@@ -6,7 +6,7 @@ URL = "http://api.telegram.org/bot%s/" % BOT_TOKEN
 # encoding: utf8
 
 
-import urllib as urllib2
+import urllib.request as urllib2
 import time
 import json
 import sys
@@ -70,8 +70,8 @@ def sendPhoto(chat_id, image_file):
         'photo': open(image_file, 'rb')
     }
     data, headers = multipart_encode(values)
-    request = urllib2.request(URL + '/sendPhoto?', data, headers)
-    response = urllib2.request.urlopen(request)
+    request = urllib2.Request(URL + '/sendPhoto?', data, headers)
+    response = urllib2.urlopen(request)
 
 
 # bot = Bot(TOKEN)
