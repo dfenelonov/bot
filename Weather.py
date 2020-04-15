@@ -6,7 +6,7 @@ URL = "http://api.telegram.org/bot%s/" % BOT_TOKEN
 # encoding: utf8
 
 
-import urllib
+import urllib as urllib2
 import time
 import json
 import sys
