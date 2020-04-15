@@ -1,6 +1,7 @@
 import requests
 import tornado.web
 import signal
+import urllib2
 BOT_TOKEN = '1233523210:AAG5pf7YRlPpuIcuOoB6c5ycDwEJ-v1WGjE'
 URL = "http://api.telegram.org/bot%s/" % BOT_TOKEN
 # encoding: utf8
@@ -27,7 +28,7 @@ URL = API + TOKEN
 # noinspection PyPep8Naming
 def getUpdates():
     get = URL + '/getUpdates'
-    response = urllib.request.urlopen(get)
+    response = urllib2.request.urlopen(get)
     return response.read()
 
 
@@ -58,8 +59,8 @@ def sendMessage(chat_id, text):
         'chat_id': chat_id,
         'text': text
     }
-    get = URL + '/sendMessage?' + urllib.parse.urlencode(sendMessage)
-    response = urllib.request.urlopen(get)
+    get = URL + '/sendMessage?' + urllib2.urlencode(sendMessage)
+    response = urllib2.request.urlopen(get)
 
 
 def sendPhoto(chat_id, image_file):
@@ -69,8 +70,8 @@ def sendPhoto(chat_id, image_file):
         'photo': open(image_file, 'rb')
     }
     data, headers = multipart_encode(values)
-    request = urllib.request.request(URL + '/sendPhoto?', data, headers)
-    response = urllib.request.urlopen(request)
+    request = urllib2.request.request(URL + '/sendPhoto?', data, headers)
+    response = urllib2.request.urlopen(request)
 
 
 # bot = Bot(TOKEN)
