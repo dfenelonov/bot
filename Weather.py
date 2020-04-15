@@ -6,7 +6,6 @@ URL = "http://api.telegram.org/bot%s/" % BOT_TOKEN
 # encoding: utf8
 
 
-import urllib.request as urllib2
 import time
 import json
 import sys
@@ -28,7 +27,7 @@ URL = API + TOKEN
 # noinspection PyPep8Naming
 def getUpdates():
     get = URL + '/getUpdates'
-    response = urllib2.urlopen(get)
+    response = urllib2.request.urlopen(get)
     return response.read()
 
 
@@ -59,8 +58,8 @@ def sendMessage(chat_id, text):
         'chat_id': chat_id,
         'text': text
     }
-    get = URL + '/sendMessage?' + urllib.urlencode(sendMessage)
-    response = urllib2.urlopen(get)
+    get = URL + '/sendMessage?' + urllib.parse.urlencode(sendMessage)
+    response = urllib.request.urlopen(get)
 
 
 def sendPhoto(chat_id, image_file):
@@ -70,8 +69,8 @@ def sendPhoto(chat_id, image_file):
         'photo': open(image_file, 'rb')
     }
     data, headers = multipart_encode(values)
-    request = urllib2.Request(URL + '/sendPhoto?', data, headers)
-    response = urllib2.urlopen(request)
+    request = urllib.request.request(URL + '/sendPhoto?', data, headers)
+    response = urllib.request.urlopen(request)
 
 
 # bot = Bot(TOKEN)
