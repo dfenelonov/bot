@@ -1,26 +1,21 @@
-import requests
-import tornado.web
-import signal
-import urllib2
-BOT_TOKEN = '1233523210:AAG5pf7YRlPpuIcuOoB6c5ycDwEJ-v1WGjE'
-URL = "http://api.telegram.org/bot%s/" % BOT_TOKEN
 # encoding: utf8
 
-
+import urllib
+import urllib2
 import time
 import json
 import sys
 
-from poster3.encode import multipart_encode
-from poster3.streaminghttp import register_openers
+from poster.encode import multipart_encode
+from poster.streaminghttp import register_openers
 
 import subprocess
 
+from TelegramBot import (Bot)
 
-
-API = 'http://api.telegram.org/bot'
-TOKEN = '1233523210:AAG5pf7YRlPpuIcuOoB6c5ycDwEJ-v1WGjE'
-PAVEL = '609959297'
+API = 'https://api.telegram.org/bot'
+TOKEN = '95471063:AAHADeZJXG1yizCj0B16ZDJxQLDFf-2Slgs'
+PAVEL = 94766527
 
 URL = API + TOKEN
 
@@ -28,7 +23,7 @@ URL = API + TOKEN
 # noinspection PyPep8Naming
 def getUpdates():
     get = URL + '/getUpdates'
-    response = urllib2.request.urlopen(get)
+    response = urllib2.urlopen(get)
     return response.read()
 
 
@@ -59,8 +54,8 @@ def sendMessage(chat_id, text):
         'chat_id': chat_id,
         'text': text
     }
-    get = URL + '/sendMessage?' + urllib2.urlencode(sendMessage)
-    response = urllib2.request.urlopen(get)
+    get = URL + '/sendMessage?' + urllib.urlencode(sendMessage)
+    response = urllib2.urlopen(get)
 
 
 def sendPhoto(chat_id, image_file):
@@ -70,8 +65,8 @@ def sendPhoto(chat_id, image_file):
         'photo': open(image_file, 'rb')
     }
     data, headers = multipart_encode(values)
-    request = urllib2.request.request(URL + '/sendPhoto?', data, headers)
-    response = urllib2.request.urlopen(request)
+    request = urllib2.Request(URL + '/sendPhoto?', data, headers)
+    response = urllib2.urlopen(request)
 
 
 # bot = Bot(TOKEN)
