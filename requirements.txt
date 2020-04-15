@@ -3,8 +3,5 @@ gunicorn
 django-heroku
 requests
 tornado
-time
-json
-sys
 poster3
 subprocess
