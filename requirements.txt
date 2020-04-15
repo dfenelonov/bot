@@ -1,3 +1,12 @@
 django
 gunicorn
 django-heroku
+requests
+tornado.web
+signal
+urllib
+time
+json
+sys
+poster3
+subprocess
